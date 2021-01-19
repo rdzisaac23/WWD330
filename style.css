@@ -1,0 +1,58 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: snow;
+    font-family: 'Montserrat', 'sans-serif'
+}
+
+
+a{
+    color: wheat;
+}
+
+a:hover{
+    color: yellow;
+}
+
+div#header{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+div#header div#name{
+    grid-column: 2;
+}
+
+div#header div#name p#big{
+    font-size: 200%
+}
+
+div#header div#list{
+    font-size: 100%;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+@media only screen and (min-width: 32.5em){
+    div#header{
+        border:red 2px solid;
+        width:80%;
+        margin: auto;
+        justify-content: center;
+        justify-items: center;
+    }
+}
