@@ -9,6 +9,10 @@ const links = [{
     {
         label: "Challenge 1: Todo",
         url: "#"
+    },
+    {
+        label: "Tic Toc Game",
+        url: "w04/tictoc.html"
     }
 ]
 
