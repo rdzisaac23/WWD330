@@ -28,15 +28,9 @@ html {
 
 body {
     margin: 0;
-    background: hsla(339, 100%, 55%, 1);
-
-    background: linear-gradient(90deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
-
-    background: -moz-linear-gradient(90deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
-
-    background: -webkit-linear-gradient(90deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
-
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#FF1B6B", endColorstr="#45CAFF", GrsadientType=1);
+    background: hsla(33, 100%, 53%, 1);
+    background: linear-gradient(90deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(33, 100%, 53%, 1) 0%, hsla(58, 100%, 68%, 1) 100%);
 }
 
 header h1 {
@@ -92,8 +86,7 @@ header h1 {
 
 
 .cell.x,
-.cell.circle,
-    {
+.cell.circle {
     cursor: not-allowed;
 }
 
@@ -218,4 +211,57 @@ header h1 {
 
 .winningMessage.show {
     display: flex;
+}
+
+/* Center */
+
+body div.center {
+    margin-top: 5%;
+}
+
+div.center {
+    width: 400px;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    color: #000000;
+}
+
+
+.center form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+
+.center h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #4c96d7;
+}
+
+.center form p {
+    width: 100%;
+    text-align: center;
+}
+
+.center form button {
+    background-color: #4c96d7;
+    font-size: 16px;
+    color: aliceblue;
+    width: 100%;
+    height: 50px;
+    margin: 5% 0;
+    border-radius: 15px;
+}
+
+.error {
+    background: #f99;
+    border: #900 1px solid;
+    display: none;
 }
