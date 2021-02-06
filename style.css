@@ -11,46 +11,49 @@ html {
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
+body {
+    background: hsla(221, 45%, 73%, 1);
+    background: linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#9BAFD9", endColorstr="#103783", GradientType=1);
     color: snow;
     font-family: 'Montserrat', 'sans-serif'
 }
 
 
-a{
+a {
     color: wheat;
 }
 
-a:hover{
+a:hover {
     color: yellow;
 }
 
-div#header{
+div#header {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
 }
 
-div#header div#name{
+div#header div#name {
     grid-column: 2;
 }
 
-div#header div#name p#big{
+div#header div#name p#big {
     font-size: 200%
 }
 
-div#header div#list{
+div#header div#list {
     font-size: 100%;
     grid-row: 1;
     grid-column: 1;
 }
 
-@media only screen and (min-width: 32.5em){
-    div#header{
-        border:red 2px solid;
-        width:80%;
+@media only screen and (min-width: 32.5em) {
+    div#header {
+        border: red 2px solid;
+        width: 80%;
         margin: auto;
         justify-content: center;
         justify-items: center;
