@@ -16,14 +16,14 @@ const links = [{
     }
 ]
 
-function orderList() {
+function unorderList() {
     
     for (var i = 0; i < links.length; i++){
-        //create a
-         
         //create li items
-        let a = document.createElement('a');
         let list = document.createElement('li');
+        
+        //create a
+        let a = document.createElement('a'); 
     
         // Set contents
         a.textContent = links[i].label;
@@ -33,14 +33,14 @@ function orderList() {
         list.appendChild(a);
         console.log(list);
 
-        document.querySelector('ol#order-list').appendChild(list);  
+        document.querySelector('ul#unorder-list').appendChild(list);  
     }
       
 };
 
 
-links.forEach(orderList => {
+links.forEach(unorderList => {
 });
 
 console.log(links);
-orderList();
+unorderList();
