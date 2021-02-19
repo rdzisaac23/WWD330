@@ -29,10 +29,16 @@ div.container{
 
 form input,
 form button{
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 20px;
     border: none;
     border-radius: 50px;
+}
+
+form input{
+    flex:1;
+    margin-left: 2%;
+    text-align: center;
 }
 
 form button {
