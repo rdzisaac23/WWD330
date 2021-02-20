@@ -11,20 +11,22 @@ const tasks = document.querySelector('.missing');
 // Event Listener
 button.addEventListener("click", add);
 list.addEventListener("click", check);
-filterAll.addEventListener("click", filter);
-filterActive.addEventListener("click", filter);
-filterCompleted.addEventListener("click", filter);
-tasks.addEventListener("change", addTasks)
-
-// function to check for active
-function addTasks(e){
-console.log(e)
-}
+document.addEventListener('click', filter);
 
 // function to filter information
 function filter(e) {
     const items = list.childNodes;
+    let count = 0;
+    
+    items.forEach(function (item){
+        if (!item.classList.contains("completed")) {
+            count += 1;
+        }
+    })
+    tasks.innerHTML = count;
+
     const className = e.target.classList;
+
     // console.log(className);
     items.forEach(function (item) {
         switch (className.value) {
