@@ -92,12 +92,12 @@ function add(e) {
 
 // function complete
 function check(e) {
-    const li = e.target
-    if (li.classList[0] === "remove") {
-        const item = li.parentElement;
+    const target = e.target
+    if (target.classList[0] === "remove") {
+        const item = target.parentElement;
         item.remove();
-    } else if (li.classList[0] === "complete") {
-        let check = li.parentElement;
+    } else if (target.classList[0] === "complete") {
+        let check = target.parentElement;
         check.classList.toggle("completed");
     } else {
 

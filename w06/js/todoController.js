@@ -41,13 +41,22 @@ export default class TodoController {
     }
 
     update(e) {
-        //  console.log(e);
-        const li = e.target;
-        if (li.classList[0] === "remove") {
-            this.todoModel.removeTodos(e.target.parentElement.getAttribute('data-key'));
-        } else if (li.classList[0] === "complete") {
-            let check = li.parentElement;
+        // console.log(e);
+        let name = e.target.className;
+        if (name === "remove") {
+            let remove = e.target.parentElement;
+            let id = remove.getAttribute('data-key');
+            console.log(id);
+            let child = this.firstChild;
+            child.todoModel.removeTodos(id);
+        //    console.log(this);
+        // this.parentElement.TodoController.deleteTodo(target.parentElement.getAttribute('data-key'));
+        } else if (name === "complete") {
+            let check = e.target.parentElement;
+            console.log(check);
             check.classList.toggle("completed");
+            let id = e.target.parentElement.getAttribute('data-key');
+            TodoController.toggle(id);
         } else {
 
         }
@@ -59,6 +68,16 @@ export default class TodoController {
             return item.id != id;
         });
         this.todoModel.addToLocalStorage(todos);
+    }
+
+    toggle(id){
+        this.todos.forEach(function(item){
+            if (item.id == id){
+                item.completed = !item.completed;
+            }
+        });
+        this.todoModel.addToLocalStorage(this.todos);r
+        return;
     }
 
     filter(e) {

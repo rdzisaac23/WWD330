@@ -10,12 +10,15 @@ window.addEventListener('load', () => {
     myTodoController.showTodoList();
 });
 
-
-
+// add new todo
 button.addEventListener("click", function(event){
     // prevent the page to relod
     event.preventDefault();
     myTodoController.addTodo(input.value);
+    input.innerHTML = ''
 });
 
+// filter data
 document.addEventListener('click', myTodoController.filter);
+
+// remove
