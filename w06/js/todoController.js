@@ -1,6 +1,5 @@
-import Todos from './todos';
-import TodoModel from './todoModel';
-import TodoView from './todoView';
+import TodoModel from './todoModel.js';
+import TodoView from './todoView.js';
 
 export default class TodoController {
     // a class needs a constructor
@@ -8,29 +7,55 @@ export default class TodoController {
         this.list = document.querySelector('.list');
         this.todoModel = new TodoModel();
         this.todoView = new TodoView();
+        this.todos = [];
     }
 
     addTodo(item) {
+        console.log(item);
         // check if it's empty
-        if (item !== '') {
+        if (item != '') {
             // create an abject
             const todo = {
                 id: Date.now(),
                 name: item,
                 completed: false
             };
-            todos.push(todo);
-            this.todoModel.addToLocalStorage(todos);
+            this.todos.push(todo);
+            this.todoModel.addToLocalStorage(this.todos);
             this.showTodoList();
         }
     }
 
     showTodoList() {
         // The list will come from the model
-        const listTodo = this.todoModel.getFromLocalStorage();
+        this.todos = this.todoModel.getFromLocalStorage();
         // send the list and element to where we want to display
-        this.todoView.renderTodoList(this.list, listTodo);
+        this.todoView.renderTodoList(this.list, this.todos);
+        
     }
+
+    update(e) {
+        const li = e.target;
+        if (li.classList[0] === "remove") {
+            const item = li.parentElement;
+            item.deleteTodo();
+        } else if (li.classList[0] === "complete") {
+            let check = li.parentElement;
+            check.classList.toggle("completed");
+        } else {
+
+        }
+    }
+
+    deleteTodo(id) {
+        // filter the item with the id
+        todos = todos.filter(function (item) {
+            return item.id != id;
+        });
+        this.todoModel.addToLocalStorage(todos);
+    }
+
+
 
 }
 
@@ -44,10 +69,10 @@ const filterCompleted = document.querySelector('.filter-completed');
 const tasks = document.querySelector('.missing');
 // const complete = document.querySelector('complete');
 
-// Event Listener
-button.addEventListener("click", add);
-list.addEventListener("click", remove);
-document.addEventListener('click', filter);
+// // Event Listener
+// button.addEventListener("click", add);
+// list.addEventListener("click", remove);
+// document.addEventListener('click', filter);
 
 
 // function to filter information
@@ -87,18 +112,4 @@ function filter(e) {
                 break;
         }
     });
-}
-
-// function complete
-function remove(e) {
-    const li = e.target
-    if (li.classList[0] === "remove") {
-        const item = li.parentElement;
-        item.remove();
-    } else if (li.classList[0] === "complete") {
-        let check = li.parentElement;
-        check.classList.toggle("completed");
-    } else {
-
-    }
 }
