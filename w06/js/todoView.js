@@ -17,6 +17,7 @@ class TodoView {
         // create div
         let div = document.createElement('div');
         div.classList.add("todo");
+        div.setAttribute('data-key', todo.id);
 
         // Complete a task
         let complete = document.createElement('button')
@@ -32,7 +33,6 @@ class TodoView {
         //create list
         let li = document.createElement('li');
         li.classList.add("list-element");
-        li.setAttribute('data-key', todo.id);
         li.innerText = todo.name;
         div.appendChild(li);
 

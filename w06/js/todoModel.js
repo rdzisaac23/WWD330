@@ -16,13 +16,16 @@ export default class TodoModel {
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    removeTodo(id){
-        const todos = TodoModel.getTodosList();
+    removeTodos(id){
+        let todos = this.getFromLocalStorage();
+
         todos.forEach(todo, index => {
-            if (todo.id === id) {
+            if(todo.id === id){
                 todos.splice(index, 1);
             }
         });
         localStorage.setItem('todos', JSON.stringify(todos));
     }
+
+    
 }
