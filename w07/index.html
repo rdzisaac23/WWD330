@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+
     <title>Document</title>
 </head>
 
@@ -36,8 +36,19 @@
             </div>
             <div class="result"></div>
         </section>
+        <hr>
+        <section>
+            <h4>Initialization Code</h4>
+            <p>An IIFE can be used to set up any initialization code that there’ll be no need for again. Because the
+                code is only run once, there’s no need to create any reusable, named functions, and all the variables
+                will also be temporary. An IIFE will be invoked once, and can set up any variables, objects and event
+                handlers when the page loads. The following example logs a welcome message to the console, then
+                eliminates all the temporary variables used in putting the message together:</p>
+            <img src="./images/initialization.png" alt="initialization">
+        </section>
     </main>
-    <script src="./js.js"></script>
+    <script src="./js.js">
+    </script>
 </body>
 
 </html>
