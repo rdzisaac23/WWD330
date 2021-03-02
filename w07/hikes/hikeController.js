@@ -1,8 +1,8 @@
 // The controller needs access to both the model and the view...so let's import them
 import HikeModel from './hikeModel.js';
-import HikesView from './hikesView.js';
-
-// Just like with the view we should organize the functions we need to our controller. Let's use a class for this one
+import HikesView from './hikeView.js';
+//  we also need the new comments class to add that functionality
+import Comments from './comments.js';
 
 export default class HikesController {
   // a class needs a constructor
@@ -10,6 +10,8 @@ export default class HikesController {
     this.parentElement = document.getElementById(parentId);
     this.hikeModel = new HikeModel();
     this.hikesView = new HikesView(parentId);
+    //add an instance of our comments class to the controller
+    this.comments = new Comments('hikes', 'comments');
   }
   showHikeList() {
     // the list of hikes will come from the model now...
@@ -30,12 +32,16 @@ export default class HikesController {
   }
   // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
   addHikeListener() {
-    // We need to loop through the children of our list and attach a listener to each, remember though that children is a nodeList...not an array. So in order to use something like a forEach we need to convert it to an array.
+    // We need to loop through the children of our list and attach a listener to each.
+    // remember though that children is a nodeList...not an array. So in order to use something like:
+    // a forEach we need to convert it to an array.
     const childrenArray = Array.from(this.parentElement.children);
     childrenArray.forEach(child => {
       child.addEventListener('touchend', e => {
         // why currentTarget instead of target?
         this.showOneHike(e.currentTarget.dataset.name);
+        console.log(this);
+        console.log(e)
       });
     });
   }
